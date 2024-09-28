@@ -1,0 +1,225 @@
+\documentclass[ x11names, dvipsnames, usenames]{article}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{framed}
+\usepackage{mdframed}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{MnSymbol}
+\usepackage[a4paper, total={6.2in, 8in}]{geometry}
+  
+
+
+ \newcommand{\bmath}[1]{ \color{Brown} $\mathbf{ #1 } $ \color{Black} }
+
+\newcommand{\BL}[1]{\color{MidnightBlue} #1 \color{Black} }
+
+\newcommand{\BR}[1]{\color{Brown} #1 \color{Black} }
+\newcommand{\RD}[1]{\color{red} #1 \color{black} }
+
+\newcommand{\gr}[1]{\color{Green} #1 \color{Black} }
+
+\newcommand{\bl}[1]{\color{Blue} #1 \color{Black} }
+
+\newcommand{\cmath}[1]{ \color{Brown} $ #1  $ \color{Black} }
+
+\newcommand{\rr}[1]{ \color{Red} #1 \color{Red} }
+
+\newcommand{\ee}[1]{ \color{Blue} $ #1  $ \color{Black} }
+
+\newcommand{\bb}[1]{ \color{Red}  #1   \color{Black} }
+\newcommand{\uu}[1]{\underline{\textbf{ #1  }}}
+
+\newcommand*{\xdash}[1][3em]{\rule[0.5ex]{#1}{0.55pt}}
+
+\newcommand{\mrule}[1]{{\color{#1}\vspace{1mm}\hrule\vspace{1mm}}}
+
+\newcommand{\Mrule}[2]{{\color{#1}\vspace{#2}\hrule\vspace{#2}}}
+
+% The percent sign starts comments
+
+\begin{document}
+
+
+
+\begin{center}   
+
+\begin{framed}  
+CS 334 Fall 2024\\[2mm]  WRITTEN HOMEWORK ASSIGNMENT  NO. 2\\[2mm]
+Due 10/04/2024 11:59 pm
+\end{framed}
+
+\end{center}
+
+
+
+
+\vspace{5mm} 
+Please adhere to the following rules:
+
+\begin{itemize} 
+\item This assignment should be submitted via Canvas. The file format should be either PDF or MS Word. Late assignments {\underline{will not be accepted}}.
+
+    \item You should attempt to solve the problems
+      on your own. You may discuss how to solve homework problems only at a high level, e.g., ``I used such and such theorem", or ``this chapter in the textbook handles a similar problem". Do not go further than this.
+      
+     \item  {\em You must write up your own solutions, in your own words}. Writing solutions jointly is not allowed.
+
+\item Using large language models such as ChatGPT to find solutions, copying solutions from the Internet or asking
+ students not enrolled in the class (or the class staff) is strictly prohibited. 
+
+\item \underline{Please explain your answers}. There will be penalties for unexplained solutions when the answers are not obvious.
+
+\item All submissions must be written using a word processor and submitted either as Word or PDF files. Handwritten submissions \underline{will not be accepted}.
+
+
+\item The preferred word processor is Latex which supports professional quality typesetting. This document provides a template you can use for your homework papers.
+
+\end{itemize}
+
+
+\vspace{3mm}
+
+\begin{enumerate}  
+
+\item Let $k \ge 1$ be a fixed integer and consider the language over the alphabet $\Sigma = \{0, 1, 2\}$
+\[ J_k = \{ w \in \{0, 1, 2\}^* \, | \, \text{the $k$-th symbol of $w$ equals 1} \} \]
+What is the minimal number of states in a DFA which recognizes $J_k$? Prove your answer and provide an example of a minimal machine for $J_k$. 
+ 
+\begin{comment} 
+ 
+\vspace{2mm}\hrule\vspace{2mm} 
+
+\textbf{Solution.} \\[0.5mm]  
+%%%%%%%%%%%%%%%%%%%% YOUR SOLUTION COMES HERE -- REPLACE WITH YOUR OWN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%  END OF YOUR SOLUTION %%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{2mm}\hrule\vspace{2mm}
+%\end{comment}
+
+
+
+
+ 
+  
+ \item Using the methods presented in figures 1.46, 1.48, and 1.50 in the textbook, construct an NFA that recognizes the language of the following regular expression
+ \[ (a \cup b)^* b a \]
+ Present the intermediate automata you obtained  while creating your final answer.
+ 
+\begin{comment}
+ 
+ \vspace{2mm}\hrule\vspace{2mm}  
+\textbf{Solution.} \\[0.5mm]
+%%%%%%%%%%%%%%%%%%%% YOUR SOLUTION COMES HERE -- REPLACE WITH  %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+ 
+ %%%%%%%%%%%%%%%%%%%% END OF YOUR SOLUTION  %%%%%%%%%%%%%%%%%%%%%%%%%
+  \vspace{2mm}\hrule\vspace{2mm}  
+  
+\end{comment}
+ 
+ \item  Let $A$ and $B$ be two regular languages over an alphabet $\Sigma$. Let’s define the following operation on the sets $A, B$:
+ \[ \begin{array}{l}
+ A  \, \bigostar \, B = \\
+  \{ w \in \Sigma^* \, | \, w = a_1 b_1 \cdots a_k b_k \text{ for some $k \ge 1$ and symbols $a_1, \ldots, a_k, b_1, \ldots, b_k \in \Sigma$}\\
+  \hspace{1.35cm}\text{ such that $a_1\cdots a_k \in A$ and $b_1\cdots b_k \in B$} \}
+  \end{array} \]     
+ In other words, $A\,\bigostar \, B$ is the language of words that come from merging of all pairs of strings $u \in A$ and $v \in B$ that have the same length (i.e., $|u| = |v|$). Show that $A \, \bigostar \, B$ is regular.
+     
+\begin{comment}
+
+\vspace{2mm}\hrule\vspace{2mm}
+ \textbf{Solution.}  \\[0.5mm]
+%%%%%%%%%%%%%%%%%%%% YOUR SOLUTION COMES HERE -- REPLACE WITH  %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+ 
+ %%%%%%%%%%%%%%%%%%%% END OF YOUR SOLUTION  %%%%%%%%%%%%%%%%%%%%%%%%% 
+\vspace{2mm}\hrule\vspace{2mm}
+    
+ \end{comment}
+ 
+ 
+ 
+
+
+\item Provide a regular expression for the language
+
+\[ ((00)^*1)^* \cap ((000)^*1)^* \]
+Note that neither $\cap$ nor $\overline{E}$ (complementation) are allowed symbols under regular expression rules.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+\begin{comment}
+\vspace{2mm}\hrule\vspace{2mm}
+\textbf{Solution.} \\[0.5mm]
+%%%%%%%%%%%%%%%%%%%% YOUR SOLUTION COMES HERE -- REPLACE WITH  %%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+ 
+ 
+ %%%%%%%%%%%%%%%%%%%% END OF YOUR SOLUTION  %%%%%%%%%%%%%%%%%%%%%%%%% 
+\vspace{2mm}\hrule\vspace{2mm}
+\end{comment}
+
+
+
+
+ \item Convert the following NFA to an equivalent regular expression using the state-elimination method. Provide the intermediate diagrams you have obtained after elimination of each state.
+ \begin{center}
+ \includegraphics[width=4.5in]{ToRE.png}
+ \end{center}
+
+\begin{comment}
+\vspace{2mm}\hrule\vspace{2mm}
+\textbf{Solution.}  \\[0.5mm]
+%%%%%%%%%%%%%%%%%%%% YOUR SOLUTION COMES HERE -- REPLACE WITH  %%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ %%%%%%%%%%%%%%%%%%%% END OF YOUR SOLUTION  %%%%%%%%%%%%%%%%%%%%%%%%% 
+\vspace{2mm}\hrule\vspace{2mm}
+\end{comment}
+
+
+
+
+
+
+\end{enumerate}
+
+
+
+\end{document}
