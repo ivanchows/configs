@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+
+{{#if incidents.length}}
+    <div id="incidents-list">
+        {{#each incidents}}
+            <div class="incident-card">
+                <h2>{{this.Title}}</h2>
+
+                <a href="/incident_card/{{this._id}}">View Incident</a>
+            </div>
+        {{/each}}
+    </div>
+{{else}}
+    <p>No incidents found.</p>
+{{/if}}
+
+<a href="/incident_create">Create a new incident</a>
+<a href="/home">Return home</a>

@@ -1,0 +1,19 @@
+<section>
+  {{#if hasError}}
+    <p>{{error}}</p>
+  {{/if}}
+
+  <form id="signin-form" method="POST" action="/signin">
+    <label for="email">Email:</label>
+    <input id="email" name="email" type="email" placeholder="Email">
+    <br>
+
+    <label for="password">Password:</label>
+    <input id="password" name="password" type="password" placeholder="Password">
+    <br>
+
+    <button type="submit" id="submit_button" name="submit_button">Submit</button>
+  </form>
+</section>
+
+<a href="/register">Click here to signup!</a>

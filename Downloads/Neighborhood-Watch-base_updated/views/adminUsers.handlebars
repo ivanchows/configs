@@ -1,0 +1,27 @@
+<section>
+  <h1>User Lookup</h1>
+
+  {{#if hasError}}
+    <p class="error">{{error}}</p>
+  {{/if}}
+
+  <label for="userSearch">Search User by Name:</label>
+  <input type="text" id="userSearch" placeholder="User Name">
+
+  <ul id="userList">
+    {{#each users}}
+      <li class="user-item">
+        <a href="/admin/users/{{this.[1]}}">
+          <span class="user-name">{{this.[0]}}</span>
+        </a>
+        <span class="user-id">{{this.[1]}}</span>
+      </li>
+    {{/each}}
+  </ul>
+
+  <p id="no-results" style="display: none;">No users found.</p>
+
+  <a href="/">Home Page</a>
+</section>
+
+<script src="/public/js/admin_validation.js"></script>

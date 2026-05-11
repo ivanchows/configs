@@ -1,0 +1,28 @@
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo" style="text-decoration:none; color:inherit;">
+      <div class="logo-mark"></div>
+      <span>Sentry</span>
+    </a>
+    <div class="nav-links">
+      {{#if user}}
+        <a href="/incidents">Incidents</a>
+        <a href="/services">Services</a>
+        <a href="/#live">Live Map</a>
+      {{else}}
+        <a href="/#live">Live Map</a>
+        <a href="/#features">Features</a>
+        <a href="/#compare">Compare</a>
+      {{/if}}
+    </div>
+    <div class="nav-actions">
+      {{#if user}}
+        <span class="nav-signin">{{user.firstName}} {{user.lastName}}</span>
+        <a href="/signout" class="nav-cta">Sign Out</a>
+      {{else}}
+        <a href="/signin" class="nav-signin">Sign In</a>
+        <a href="/register" class="nav-cta">Register</a>
+      {{/if}}
+    </div>
+  </div>
+</nav>

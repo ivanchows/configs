@@ -1,0 +1,33 @@
+
+
+<h1>{{title}}</h1>
+<form id="incident_update-form" name="incident_update-form" action="/incident_update" method="POST" class="form">
+    <label>
+        category
+        <select name="category" id="category" class="full-width-input">
+            <option value="traffic">Traffic</option>
+            <option value="theft">Theft</option>
+            <option value="car accident">Car Accident</option>
+            <option value="animal">Animal</option>
+            <option value="debris">Debris</option>
+            <option value="suspicious activity">Suspicious Activity</option>
+            <option value="crime">Crime</option>
+        </select>
+    </label>
+    <label>
+        Title
+        <input type="text" name="Title" id="Title" placeholder="Type the title or leave blank if you dont want to change">
+    </label>
+    <label>
+        decription
+        <input type="text" name="description" id="description" placeholder="type the description or leave blank if you dont want to change">
+    </label>
+    <label>
+        location
+        <input type="text" name="location" id="location" placeholder="type the location or leave blank if you dont want to change">
+    </label>
+    <label>
+        submit button 
+        <button type="submit" name="submit_button" id="submit_button">Submit!</button>
+    </label>
+</form>

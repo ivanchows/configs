@@ -1,0 +1,77 @@
+<main>
+  <section class="services-hero">
+    <div class="container">
+      <div class="section-eyebrow">// Local Services</div>
+      <h1 class="section-title">Find nearby <em>emergency services.</em></h1>
+      <p class="section-lede">Enter a ZIP code to locate police stations, fire stations, and hospitals near that area.</p>
+
+      <form class="service-search" id="localServicesForm" novalidate>
+        <label class="service-label" for="serviceZip">ZIP code</label>
+        <div class="service-search-row">
+          <input
+            type="text"
+            id="serviceZip"
+            name="zip"
+            placeholder="Enter ZIP code"
+            maxlength="5"
+            pattern="\d{5}"
+            inputmode="numeric"
+            autocomplete="postal-code"
+            required
+          >
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+        <p id="serviceZipError" class="service-error" hidden>Please enter a valid ZIP code.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="services-results" id="localServicesResults" hidden>
+    <div class="container">
+      <div class="services-toolbar">
+        <div>
+          <div class="section-eyebrow">// Results</div>
+          <h2 class="services-heading" id="servicesHeading">Nearby services</h2>
+        </div>
+        <div class="service-filters" role="group" aria-label="Service type filters">
+          <button type="button" class="service-filter active" data-service="all">All</button>
+          <button type="button" class="service-filter" data-service="police">Police</button>
+          <button type="button" class="service-filter" data-service="fire">Fire</button>
+          <button type="button" class="service-filter" data-service="hospital">Hospitals</button>
+        </div>
+      </div>
+
+      <div class="services-grid">
+        <div class="services-map-panel">
+          <iframe
+            id="localServicesMap"
+            title="Nearby local services map"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <aside class="services-list" aria-label="Local services query shortcuts">
+          <button type="button" class="service-card" data-service="police">
+            <span class="service-card-kicker">Police</span>
+            <strong>Police stations</strong>
+            <span>Find nearby local police departments.</span>
+          </button>
+          <button type="button" class="service-card" data-service="fire">
+            <span class="service-card-kicker">Fire</span>
+            <strong>Fire stations</strong>
+            <span>Find nearby fire stations.</span>
+          </button>
+          <button type="button" class="service-card" data-service="hospital">
+            <span class="service-card-kicker">Medical</span>
+            <strong>Hospitals</strong>
+            <span>Find nearby hospitals with emergency rooms.</span>
+          </button>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="/js/local_services.js"></script>

@@ -1,0 +1,33 @@
+
+
+<h1>{{title}}</h1>
+<form id="incident_create-form" name="incident_create-form" action="/incident_create" method="POST" class="form">
+    <label>
+        category
+        <select name="category" id="category" class="full-width-input">
+            <option value="traffic">Traffic</option>
+            <option value="theft">Theft</option>
+            <option value="car accident">Car Accident</option>
+            <option value="animal">Animal</option>
+            <option value="debris">Debris</option>
+            <option value="suspicious activity">Suspicious Activity</option>
+            <option value="crime">Crime</option>
+        </select>
+    </label>
+    <label>
+        Title
+        <input type="text" name="Title" id="Title" placeholder="Type the title">
+    </label>
+    <label>
+        decription
+        <input type="text" name="description" id="description" placeholder="type the description">
+    </label>
+    <label>
+        location
+        <input type="text" name="location" id="location" placeholder="type the location">
+    </label>
+    <label>
+        submit button 
+        <button type="submit" name="submit_button" id="submit_button">Submit!</button>
+    </label>
+</form>

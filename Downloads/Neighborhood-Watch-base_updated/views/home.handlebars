@@ -1,0 +1,126 @@
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div>
+
+          <p class="hero-sub">
+            Sentry connects residents with local services and each other.
+          </p>
+
+          <div class="hero-cta">
+
+            {{#unless user}}
+              <a href="/register" class="btn btn-primary">
+                Create Account →
+              </a>
+
+              <a href="/signin" class="btn btn-ghost">
+                Sign In
+              </a>
+            {{/unless}}
+
+            {{#if loggedIn}}
+              <a href="/profile" class="btn btn-primary">
+                View Profile →
+              </a>
+
+              <a href="/signout" class="btn btn-ghost">
+                Sign Out
+              </a>
+            {{/if}}
+
+            {{#if isAdmin}}
+              <a href="/admin/users" class="btn btn-ghost">
+                Admin Panel
+              </a>
+            {{/if}}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="live">
+    <div class="container">
+
+      <div class="section-eyebrow">
+        // Live Activity
+      </div>
+
+      <h2 class="section-title">
+        Real-time view of <em>your block.</em>
+      </h2>
+
+      <div class="live-grid">
+
+        <div class="panel" style="display:flex; flex-direction:column;">
+          <div class="panel-header">
+            <span>Community Map · Hoboken, NJ</span>
+            <span class="panel-status">LIVE</span>
+          </div>
+
+          <div
+            id="incidentMap"
+            class="map-area"
+            style="flex:1; min-height:300px;"
+          ></div>
+        </div>
+
+        <div class="panel feed">
+
+          <div class="panel-header">
+            <span>Incident Feed</span>
+            <span>{{recentIncidents.length}} reports</span>
+          </div>
+
+          <div class="feed-list">
+
+            {{#each recentIncidents}}
+              <a href="/incident_card/{{_id}}" class="feed-link">
+
+                <div class="feed-item">
+
+                  <div class="feed-meta">
+                    <span class="badge {{statusClass status}}">
+                      {{titleCase status}}
+                    </span>
+
+                    <span>{{postedDate}}</span>
+                  </div>
+
+                  <div class="feed-title">
+                    {{Title}}
+                  </div>
+
+                  <div class="feed-loc">
+                    {{location}}
+                  </div>
+
+                </div>
+
+              </a>
+
+            {{else}}
+
+              <div class="panel-empty-msg">
+                No incidents reported yet.
+              </div>
+
+            {{/each}}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  window.__mapIncidents = {{{mapIncidentsJSON}}};
+</script>
+
+<script src="/public/js/home.js"></script>

@@ -1,0 +1,44 @@
+<section>
+  <h1>Admin User Profile</h1>
+
+  <p><strong>Name:</strong> {{selectedUser.firstName}} {{selectedUser.lastName}}</p>
+  <p><strong>User ID:</strong> {{selectedUser._id}}</p>
+  <p><strong>Email:</strong> {{selectedUser.email}}</p>
+  <p><strong>Gender:</strong> {{selectedUser.gender}}</p>
+  <p><strong>Age:</strong> {{selectedUser.age}}</p>
+
+  <h2>Address</h2>
+  <p><strong>Street:</strong> {{selectedUser.address.Street}}</p>
+  <p><strong>City:</strong> {{selectedUser.address.City}}</p>
+  <p><strong>State:</strong> {{selectedUser.address.State}}</p>
+  <p><strong>Zip Code:</strong> {{selectedUser.address.zipCode}}</p>
+
+  <h2>Account Info</h2>
+  <p><strong>Role:</strong> {{selectedUser.role}}</p>
+  <p><strong>Trust Rating:</strong> {{selectedUser.trustRating}}</p>
+  <p><strong>Account Made:</strong> {{selectedUser.accountMade}}</p>
+
+  <h2>Watch List Zip Codes</h2>
+  {{#if selectedUser.watchListZip.length}}
+    <ul>
+      {{#each selectedUser.watchListZip}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No zip codes in watch list.</p>
+  {{/if}}
+
+  <form method="POST" action="/admin/users/{{selectedUser._id}}/upgrade">
+    <button type="submit">Upgrade to Admin</button>
+  </form>
+
+  <form method="POST" action="/admin/users/{{selectedUser._id}}/ban">
+    <button type="submit">Ban User</button>
+  </form>
+
+  <br>
+  <a href="/admin/users">Back to User Lookup</a>
+  <br>
+  <a href="/">Home Page</a>
+</section>
