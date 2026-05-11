@@ -1,0 +1,22 @@
+
+
+<h1>{{title}}</h1>
+<form id="status_update-form" name="status_update-form" action="/status_update/{{incident._id}}" method="POST" class="form">
+    <label>
+        status
+        <select name="status" id="status" class="full-width-input">
+            <option value="active">Active</option>
+            <option value="resolved">Resolved</option>
+            <option value="authorities notified">Authorities Notified</option>
+        </select>
+    </label>
+    <p>Notification</p>
+    <label>
+        content
+        <input type="text" name="content" id="content" placeholder="Type the content">
+    </label>
+    <label>
+        submit button 
+        <button type="submit" name="submit_button" id="submit_button">Submit!</button>
+    </label>
+</form>

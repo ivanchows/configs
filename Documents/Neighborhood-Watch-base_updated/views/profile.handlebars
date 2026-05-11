@@ -1,0 +1,119 @@
+<section>
+  <h1>Your Profile</h1>
+
+  {{#if hasError}}
+    <p class="error">{{error}}</p>
+  {{/if}}
+
+  <h2>Current Information</h2>
+
+  <p><strong>Name:</strong> <span id="profileName">{{user.firstName}} {{user.lastName}}</span></p>
+  <p><strong>Email:</strong> <span id="profileEmail">{{user.email}}</span></p>
+  <p><strong>Gender:</strong> <span id="profileGender">{{user.gender}}</span></p>
+  <p><strong>Age:</strong> <span id="profileAge">{{user.age}}</span></p>
+
+  <h2>Address</h2>
+
+  <p><strong>Street:</strong> <span id="profileStreet">{{user.address.Street}}</span></p>
+  <p><strong>City:</strong> <span id="profileCity">{{user.address.City}}</span></p>
+  <p><strong>State:</strong> <span id="profileState">{{user.address.State}}</span></p>
+  <p><strong>Zip Code:</strong> <span id="profileZipCode">{{user.address.zipCode}}</span></p>
+
+  <h2>Account Information</h2>
+
+  <p><strong>Role:</strong> {{user.role}}</p>
+  <p><strong>Trust Rating:</strong> {{user.trustRating}}</p>
+  <p><strong>Account Created:</strong> {{user.accountMade}}</p>
+
+  <h2>Watch List Zip Codes</h2>
+
+  {{#if user.watchListZip.length}}
+    <ul id="watchListDisplay">
+      {{#each user.watchListZip}}
+        <li>{{this}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No zip codes in watch list.</p>
+  {{/if}}
+</section>
+
+<section>
+  <h2>Update Profile</h2>
+
+  <form id="update-profile-form" name="update-profile-form" method="POST" action="/profile/update">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" placeholder="{{user.firstName}}" value="{{user.firstName}}">
+    <br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" placeholder="{{user.lastName}}" value="{{user.lastName}}">
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="{{user.email}}" value="{{user.email}}">
+    <br>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="{{user.gender}}">{{user.gender}}</option>
+      <option value="M">M</option>
+      <option value="F">F</option>
+      <option value="NB">NB</option>
+      <option value="prefer not to say">Prefer not to say</option>
+    </select>
+    <br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" placeholder="{{user.age}}" value="{{user.age}}" min="16" max="100">
+    <br>
+
+    <label for="Street">Street:</label>
+    <input type="text" id="Street" name="address[Street]" placeholder="{{user.address.Street}}" value="{{user.address.Street}}">
+    <br>
+
+    <label for="City">City:</label>
+    <input type="text" id="City" name="address[City]" placeholder="{{user.address.City}}" value="{{user.address.City}}">
+    <br>
+
+    <label for="State">State:</label>
+    <input type="text" id="State" name="address[State]" placeholder="{{user.address.State}}" value="{{user.address.State}}" maxlength="2">
+    <br>
+
+    <label for="zipCode">Zip Code:</label>
+    <input type="text" id="zipCode" name="address[zipCode]" placeholder="{{user.address.zipCode}}" value="{{user.address.zipCode}}" maxlength="5">
+    <br>
+
+    <button type="submit" id="updateProfileButton" name="updateProfileButton">Update Profile</button>
+  </form>
+</section>
+
+<section>
+  <h2>Add Zip Code to Watch List</h2>
+
+  <form id="add-zip-form" name="add-zip-form" method="POST" action="/profile/watchlist/add">
+    <label for="watchZipCode">Zip Code:</label>
+    <input type="text" id="watchZipCode" name="zipCode" placeholder="Zip Code" maxlength="5">
+    <br>
+
+    <button type="submit" id="addZipButton" name="addZipButton">Add Zip Code</button>
+  </form>
+</section>
+
+<section>
+  <h2>Delete Account</h2>
+
+  <form id="delete-profile-form" name="delete-profile-form" method="POST" action="/profile/delete">
+    <button type="submit" id="deleteProfileButton" name="deleteProfileButton">
+      Delete Account
+    </button>
+  </form>
+</section>
+
+<br>
+
+<a href="/">Home Page</a>
+<br>
+<a href="/signout">Sign Out</a>
+
+<script src="/public/js/profile_validation.js"></script>

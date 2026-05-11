@@ -1,0 +1,21 @@
+
+
+<h1>{{title}}</h1>
+<form id="verify-form" name="verify-form" action="/verify/{{incident._id}}" method="POST" class="form">
+    <label>
+        verified
+        <select name="verified" id="verified" class="full-width-input">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+    </label>
+    <p>Notification</p>
+    <label>
+        content
+        <input type="text" name="content" id="conten" placeholder="Type the title">
+    </label>
+    <label>
+        submit button 
+        <button type="submit" name="submit_button" id="submit_button">Submit!</button>
+    </label>
+</form>

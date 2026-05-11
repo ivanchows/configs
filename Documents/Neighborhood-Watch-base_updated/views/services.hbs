@@ -1,0 +1,98 @@
+<main>
+  <section style="padding: 80px 0;">
+    <div class="container">
+      <div class="section-eyebrow">// Local Services</div>
+      <h2 class="section-title" style="margin-bottom:12px;">Emergency services <em>near you.</em></h2>
+      <p class="section-lede" style="margin-bottom:40px;">Enter a ZIP code to find nearby police, fire, hospitals, and urgent care.</p>
+
+      <form method="GET" action="/services" style="display:flex; gap:12px; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap;">
+        <div>
+          <label for="zip" style="display:block; margin-bottom:6px; color:var(--text-muted); font-size:13px;">ZIP Code</label>
+          <input id="zip" name="zip" type="text" value="{{zip}}" placeholder="e.g. 07030" maxlength="5"
+            style="padding:12px 14px; background:var(--surface); border:1px solid var(--border); color:var(--text); font-size:14px; border-radius:6px; outline:none; width:180px;">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
+
+      {{#if hasError}}
+        <div style="color:var(--red); margin-bottom:32px; padding:14px 18px; border:1px solid var(--red); border-radius:6px; font-size:14px;">{{error}}</div>
+      {{/if}}
+
+      {{#if services}}
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+
+          {{#if services.police.length}}
+          <div class="panel" style="padding:24px;">
+            <h3 style="font-size:16px; font-weight:600; margin-bottom:16px; color:var(--blue-bright);">Police</h3>
+            {{#each services.police}}
+              <div style="padding:12px 0; border-bottom:1px solid var(--border);">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;">
+                <div style="font-size:14px; font-weight:500;">{{name}}</div>
+                {{#if distance}}<div style="font-size:12px; color:var(--blue-bright);">{{distance}}</div>{{/if}}
+              </div>
+              {{#if phone}}<div style="font-size:13px; color:var(--text-muted);">{{phone}}</div>{{/if}}
+              {{#if address}}<div style="font-size:12px; color:var(--text-dim); margin-top:2px;">{{address}}</div>{{/if}}
+              </div>
+            {{/each}}
+          </div>
+          {{/if}}
+
+          {{#if services.fire.length}}
+          <div class="panel" style="padding:24px;">
+            <h3 style="font-size:16px; font-weight:600; margin-bottom:16px; color:var(--amber);">Fire Station</h3>
+            {{#each services.fire}}
+              <div style="padding:12px 0; border-bottom:1px solid var(--border);">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;">
+                  <div style="font-size:14px; font-weight:500;">{{name}}</div>
+                  {{#if distance}}<div style="font-size:12px; color:var(--blue-bright);">{{distance}}</div>{{/if}}
+                </div>
+                {{#if phone}}<div style="font-size:13px; color:var(--text-muted);">{{phone}}</div>{{/if}}
+                {{#if address}}<div style="font-size:12px; color:var(--text-dim); margin-top:2px;">{{address}}</div>{{/if}}
+              </div>
+            {{/each}}
+          </div>
+          {{/if}}
+
+          {{#if services.hospital.length}}
+          <div class="panel" style="padding:24px;">
+            <h3 style="font-size:16px; font-weight:600; margin-bottom:16px; color:var(--green);">Hospital</h3>
+            {{#each services.hospital}}
+              <div style="padding:12px 0; border-bottom:1px solid var(--border);">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;">
+                  <div style="font-size:14px; font-weight:500;">{{name}}</div>
+                  {{#if distance}}<div style="font-size:12px; color:var(--blue-bright);">{{distance}}</div>{{/if}}
+                </div>
+                {{#if phone}}<div style="font-size:13px; color:var(--text-muted);">{{phone}}</div>{{/if}}
+                {{#if address}}<div style="font-size:12px; color:var(--text-dim); margin-top:2px;">{{address}}</div>{{/if}}
+              </div>
+            {{/each}}
+          </div>
+          {{/if}}
+
+          {{#if services.urgentCare.length}}
+          <div class="panel" style="padding:24px;">
+            <h3 style="font-size:16px; font-weight:600; margin-bottom:16px; color:var(--red);">Urgent Care</h3>
+            {{#each services.urgentCare}}
+              <div style="padding:12px 0; border-bottom:1px solid var(--border);">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;">
+                  <div style="font-size:14px; font-weight:500;">{{name}}</div>
+                  {{#if distance}}<div style="font-size:12px; color:var(--blue-bright);">{{distance}}</div>{{/if}}
+                </div>
+                {{#if phone}}<div style="font-size:13px; color:var(--text-muted);">{{phone}}</div>{{/if}}
+                {{#if address}}<div style="font-size:12px; color:var(--text-dim); margin-top:2px;">{{address}}</div>{{/if}}
+              </div>
+            {{/each}}
+          </div>
+          {{/if}}
+
+          {{#unless services.police.length}}{{#unless services.fire.length}}{{#unless services.hospital.length}}{{#unless services.urgentCare.length}}
+            <div style="grid-column:1/-1; color:var(--text-muted); font-size:14px; padding:32px 0;">
+              No emergency services found within 10 km of ZIP code <strong>{{zip}}</strong>.
+            </div>
+          {{/unless}}{{/unless}}{{/unless}}{{/unless}}
+
+        </div>
+      {{/if}}
+    </div>
+  </section>
+</main>

@@ -1,0 +1,62 @@
+<section>
+  {{#if hasError}}
+    <p>{{error}}</p>
+  {{/if}}
+
+  <form id="signup-form" name="signup-form" method="POST" action="/register">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" placeholder="First Name">
+    <br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
+    <br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Email">
+    <br>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+      <option value="M">M</option>
+      <option value="F">F</option>
+      <option value="NB">NB</option>
+      <option value="prefer not to say">Prefer not to say</option>
+    </select>
+    <br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" placeholder="Age" min="16" max="100">
+    <br>
+
+    <label for="Street">Street:</label>
+    <input type="text" id="Street" name="address[Street]" placeholder="Street">
+    <br>
+
+    <label for="City">City:</label>
+    <input type="text" id="City" name="address[City]" placeholder="City">
+    <br>
+
+    <label for="State">State:</label>
+    <input type="text" id="State" name="address[State]" placeholder="State" maxlength="2">
+    <br>
+
+    <label for="zipCode">Zip Code:</label>
+    <input type="text" id="zipCode" name="address[zipCode]" placeholder="Zip Code" maxlength="5">
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Password">
+    <br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+    <br>
+
+    <button type="submit" id="submitButton" name="submitButton">Submit</button>
+  </form>
+</section>
+
+<a href="/signin">Already have an account? Click here to sign-in</a>
+<br>
+<a href="/">Home Page</a>
